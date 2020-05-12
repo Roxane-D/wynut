@@ -1,0 +1,37 @@
+body {
+    background-color: #F9F5F2;
+}
+.formu{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 150px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: auto;
+    margin-top: 20px;
+}
+
+.desc{
+    height: 70px;
+    hyphens: auto;
+}
+
+.boutonsend{
+    font-family: 'Quicksand', sans-serif;
+    color : #F9F5F2;
+    font-size: 18px;
+    font-weight: 800;
+    border-radius: 40px;
+    border: none;
+    background-color: #CA6077;
+    width: 200px;
+    height: 30px;
+    text-align: center;
+}

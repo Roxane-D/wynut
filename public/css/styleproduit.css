@@ -1,0 +1,165 @@
+body {
+    background-color: #F9F5F2;
+}
+
+p {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 18px;
+}
+
+.display {
+    display: flex;
+    flex-direction: row;
+    margin-top: 100px;
+}
+
+.affichageimage {
+    margin-left: 250px;
+    width: 581.66px;
+}
+
+.imgmain > img {
+    width: 581.66px;
+    height: 373px;
+    border-radius: 10px;
+    display: flex;
+}
+
+.imgothers > img {
+    width: 123px;
+    height: 123px;
+    border-radius: 4px;
+    margin-top: 10px;
+    opacity: 60%;
+}
+
+.imgothers {
+    display: flex;
+    justify-content: space-between;
+}
+
+.imglogo {
+    display: flex;
+    justify-content: space-between;
+    width: 457px;
+    height: 93px;
+    margin-top: 30px;
+}
+
+.imglogo > img {
+    height: 93px;
+    width: auto;
+}
+
+.descri {
+    margin-left: 150px;
+    width: 584px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.blocqte {
+    display: flex;
+    flex-direction: column;
+    margin-top: 120px;
+    align-items: center;
+}
+
+.quantite {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 220px;
+    height: 70px;
+}
+
+.quantite > img {
+    width: 36px;
+    height: 36px;
+    color: #6AC0A2;
+}
+
+.gramme {
+    margin: 0px;
+    height: 45px;
+    width: 60px;
+}
+
+.carre {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #6AC0A2;
+    box-sizing: border-box;
+}
+
+.bouton,
+.boutonedit,
+.boutonsupp{
+    font-family: 'Quicksand', sans-serif;
+    color : #F9F5F2;
+    font-size: 18px;
+    font-weight: 800;
+    border-radius: 40px;
+    border: none;
+    width: 200px;
+    height: 40px;
+    text-align: center;
+}
+
+.bouton{
+    background-color: #CA6077;
+    margin-bottom: 20px;
+}
+.boutonsupp{
+    background-color: tomato;
+}
+.boutonedit{
+    background-color: #F5B472;
+    margin-bottom: 20px;
+}
+.boutonedit>a{
+    color : #F9F5F2;
+    text-decoration: none;
+    margin: 0px;
+}
+.supp{
+    text-decoration: none;
+    color : #F9F5F2;
+}
+
+.titre {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 28px;
+    font-weight: 500;
+    margin-top: 0px;
+}
+
+.prix {
+    margin: 0px;
+    font-weight: 500;
+}
+
+.prixkilo {
+    margin: 0px;
+}
+
+.texte {
+    width: 584px;
+    height: 140px;
+    margin-top: 45px;
+}
+
+.nutri {
+    width: 1315px;
+    height: 224px;
+    margin-left: 100px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.recettes {
+    width: 1440px;
+    display: flex;
+    justify-content: center;
+}
