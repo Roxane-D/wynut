@@ -33,6 +33,7 @@
                                                                       src="{{asset($product->image)}}"
                                                                       alt="POURQUOI SEIGNEUR BULGUR"></a>
                     </div>
+                    <p>{{ $product->category->name }}</p>
                     <div class="description">
                         <div class="imagepanier"><a href="https://www.le-campus-numerique.fr/%22%3E"><img class="
                                                     pictopanier" src="{{asset("img/bag.svg")}}" alt="POURQUOI SEIGNEUR

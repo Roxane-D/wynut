@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
 use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
@@ -16,8 +17,8 @@ class ProductController extends Controller
         // $ID=DB::select('select * from products where id=:id', ["id"=>$ID]);
         // return view('produit',['product'=>$ID[0]]);
 
-        $id = \App\Product::where('id',$id) ->get();
-        return view('produit',['product'=>$id[0]]);
+        $product = Product::findOrFail($id);
+        return view('produit',['product'=>$product]);
     }
 }
 

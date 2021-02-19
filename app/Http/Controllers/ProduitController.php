@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Http\Request;
+use App\Http\Requests\CreateProductRequest;
+use App\Http\Requests\UpdateProductRequest;
 use App\Product;
+use Illuminate\Http\Request;
 
 class ProduitController extends Controller
 {
@@ -35,28 +35,9 @@ class ProduitController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateProductRequest $request)
     {
-        $request->validate([
-            'name'=>'required|max:50|unique:products',
-            'price'=>'required|between:1,600',
-            'stock'=>'required|between:1,100',
-            'description'=>'required|max:255',
-            'image'=>'required|max:255',
-            'image'=>'required|max:255',
-            'weight'=>'required|min:1',
-            'category_id'=>'required',
-        ]);
-        $product = new Product;
-        $product->name = $request->name;
-        $product->price = $request->price;
-        $product->stock = $request->stock;
-        $product->description = $request->description;
-        $product->image = $request->image;
-        $product->weight = $request->weight;
-        $product->category_id=$request->category_id;
-
-        $product->save();
+        Product::create($request->validated());
 
         return redirect(route('product.create'));
     }
@@ -67,11 +48,9 @@ class ProduitController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Product $product)
     {
-        $product = Product::where('id',$id)
-            ->get();
-        return view('produit', ['product' => $product[0]]);
+        return view('produit', ['product' => $product]);
     }
 
     /**
@@ -80,9 +59,8 @@ class ProduitController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Product $product)
     {
-        $product = Product::find($id);
         return view('modifier/formulairemodifier', compact('product'));
     }
 
@@ -93,29 +71,11 @@ class ProduitController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateProductRequest $request, Product $product)
     {
-        $request->validate([
-            'name'=>'required|max:50',
-            'price'=>'required|between:1,600|',
-            'stock'=>'required|between:1,100|',
-            'description'=>'required|max:255|',
-            'image'=>'required|max:255|',
-            'image'=>'required|max:255|',
-            'weight'=>'required|min:1|',
-            'category_id'=>'required|',
-        ]);
+        $product->update($request->validated());
 
-        $post = Product::find($id);
-        $post->name=$request->input('name');
-        $post->price=$request->input('price');
-        $post->stock=$request->input('stock');
-        $post->description=$request->input('description');
-        $post->image=$request->input('image');
-        $post->weight=$request->input('weight');
-        $post->category_id=$request->input('category_id');
-        $post->save();
-        return redirect('/produit/' . $id);
+        return redirect('/produit/' . $product->id);
     }
 
     /**
@@ -124,9 +84,9 @@ class ProduitController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Product $product)
     {
-        Product::destroy($id);
+        $product->delete();
         return redirect('catalogue');
     }
 }

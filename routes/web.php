@@ -15,15 +15,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/accueil', 'AccueilController@create');
 
-Route::get('/catalogue/{id?}', 'CatalogueController@index');
+Route::get('/catalogue/{category:id?}', 'CatalogueController@index');
 
-Route::get('/produit/{id}', 'ProduitController@show')->name('product.show');
+Route::get('/produit/{product:id}', 'ProduitController@show')->name('product.show');
 
 
-Route::put('/modifier/edit/{id}', 'ProduitController@update');
-Route::get('/produit/edit/{id}', 'ProduitController@edit');
+Route::put('/modifier/edit/{product:id}', 'ProduitController@update');
+Route::get('/produit/edit/{product:id}', 'ProduitController@edit');
 
 Route::get('/creer/create', 'ProduitController@create')->name('product.create');
 Route::post('/creer', 'ProduitController@store')->name('product.store');
 
-Route::delete('produit/destroy/{id}', 'ProduitController@destroy');
+Route::delete('produit/destroy/{product:id}', 'ProduitController@destroy');

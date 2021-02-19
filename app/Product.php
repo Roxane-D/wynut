@@ -8,7 +8,17 @@ class Product extends Model
 {
     public $timestamps=false;
 
+    protected $fillable =  [
+        "name",
+        "price",
+        "stock",
+        "description",
+        "image",
+        "weight",
+        "category_id",
+    ];
+
     public function category() {
-        return $this->hasOne('App\Category');
+        return $this->belongsTo('App\Category');
     }
 }
